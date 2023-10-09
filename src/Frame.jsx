@@ -2,10 +2,8 @@ import { Text3D, Environment, useTexture,  useGLTF, OrbitControls } from '@react
 import { useRef, useState } from 'react'
 import {  useFrame } from '@react-three/fiber'
 
-
 export default function Frame()
 {
-
     const { nodes } = useGLTF('./model/fresh-cut-bake-2.glb')
     
     const bakedTexture = useTexture('./model/lets-bake.jpg')
@@ -29,7 +27,6 @@ export default function Frame()
     <meshBasicMaterial 
             map={ bakedTexture } />
     </mesh>
-
 
     </>
 }

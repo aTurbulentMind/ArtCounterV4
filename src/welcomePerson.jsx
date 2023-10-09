@@ -1,4 +1,3 @@
-
 import { Environment, useTexture,  useGLTF, OrbitControls } from '@react-three/drei'
 
 export default function WelcomePerson()
@@ -18,6 +17,5 @@ export default function WelcomePerson()
         <meshBasicMaterial 
             map={ bakedTexture } />
          </mesh>
-
     </>
 }

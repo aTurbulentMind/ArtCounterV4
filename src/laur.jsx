@@ -7,7 +7,7 @@ export default function Laur()
     const bakedTexture = useTexture('./model/baked-laur.jpg')
     bakedTexture.flipY = false
 
-    return <  >
+    return <>
 
         <mesh 
         geometry={ nodes.laur.geometry } 
@@ -16,7 +16,6 @@ export default function Laur()
         >
         <meshBasicMaterial 
             map={ bakedTexture } />
-         </mesh>
-
+        </mesh>
     </>
 }

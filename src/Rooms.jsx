@@ -1,18 +1,15 @@
-import { meshBounds, useTexture} from '@react-three/drei'
-import { useControls } from 'leva'
+import { Text, Text3D,meshBounds, useTexture} from '@react-three/drei'
 
 export default function Rooms()
 {
-
-    const Green = '#318820'
+    const Green = 'hsl(110, 62%, 33%)'
 
     const eventHandler = (event) =>
     {
-        console.log('the event occured')
+        console.log('display button')
     }
 
         return <>
-//// Kitchen one
             <mesh receiveShadow
             position={  [ 7.17, 2.05, -27.75] }
             scale={ 7}
@@ -115,7 +112,6 @@ export default function Rooms()
             />
             </mesh>
 
-//// Kitchen Two 
             <mesh receiveShadow
             position={  [ 7.17, 2.05, -1.2] }
             scale={ 7}
@@ -217,10 +213,6 @@ export default function Rooms()
             roughness={0.3}
             />
             </mesh>
-
-        
-
-            //// Water Features
 
             <mesh receiveShadow
             position={  [ -9.47, 3.14, 1.5] }
@@ -324,7 +316,6 @@ export default function Rooms()
             />
             </mesh>
 
-            //// Bathroom
             <mesh receiveShadow
             position={  [ -8.04, 2.04, -26.45] }
             scale={ 7}

@@ -1,16 +1,28 @@
-import { useEffect, useRef } from 'react'
-import {extend,  addEffect } from '@react-three/fiber'
+export default function Interface({ setCameraPosition }) { 
+  const handleButtonClick = (newPosition) => {
+    // Update the camera position by calling setCameraPosition
+    setCameraPosition(newPosition);
+    console.log('Menu click');
+  };
 
-export default function Interface()
-{ 
-        return <div className="interface">
-
-        {/* Menu */}
-        <div className="Menu">
-            <div className="raw">
-                <div className="key">Hello!</div>
-            </div>
+  return (
+    <div className="interface">
+      {/* Menu */}
+      <div className="Menu">
+        <div className="raw">
+          <div
+            className="button"
+            onClick={() => handleButtonClick({ x: 10, y: 10, z: 5 })}
+          >
+            Artistic Artisan Design & More
+          </div>
         </div>
-        
+      </div>
     </div>
+  );
 }
+
+
+
+
+

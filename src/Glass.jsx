@@ -2,11 +2,7 @@ import {  MeshReflectorMaterial, useTexture } from '@react-three/drei'
 
 export default function Glass()
 {
-
-
     return <>
-
-
     <mesh receiveShadow
         position={  [ -9.44, 4.54, -40.41 ] }
         scale={ 7}
@@ -37,7 +33,6 @@ export default function Glass()
         color="silver"
         />
     </mesh>
-
 
     </>
 }
