@@ -1,8 +1,10 @@
-export default function Interface({ setCameraPosition }) { 
+import React, { useRef, useState } from 'react'
+
+export default function Interface({ setCameraPosition }) {
+
   const handleButtonClick = (newPosition) => {
-    // Update the camera position by calling setCameraPosition
-    setCameraPosition(newPosition);
-    console.log('Menu click');
+   const  setCameraPosition = (newPosition);
+    console.log(setCameraPosition, 'at menu click');
   };
 
   return (
@@ -12,17 +14,18 @@ export default function Interface({ setCameraPosition }) {
         <div className="raw">
           <div
             className="button"
-            onClick={() => handleButtonClick({ x: 10, y: 10, z: 5 })}
+            onClick={(newPosition) => handleButtonClick({ x: 10, y: 10, z: 0 })}
           >
             Artistic Artisan Design & More
+          </div>
+                    <div
+            className="button"
+            onClick={(newPosition) => handleButtonClick({ x: 20, y: 4, z: 20 })}
+          >
+            Kitchen One
           </div>
         </div>
       </div>
     </div>
   );
 }
-
-
-
-
-

@@ -10,6 +10,7 @@ import { useControls } from 'leva'
 import React, { useRef, useState } from 'react'
 import {  useFrame } from '@react-three/fiber'
 
+import { useCamera } from './stores/CameraContext';
 import CameraBoi from './Camera'
 import Frame from './Frame'
 import WelcomePerson from './welcomePerson'
@@ -28,15 +29,13 @@ export default function Experience()
         step: 0.01
     } })
 
-    const [cameraPosition, setCameraPosition] = useState({ x: 0, y: 10, z: 10 });
+    const { cameraPosition } = useCamera();
 
     return <>
 
     <Perf position="top-left" />
 
-    <CameraBoi cameraPosition={cameraPosition} setCameraPosition={setCameraPosition}/>
-
-    <OrbitControls makeDefault />
+    <CameraBoi cameraPosition={cameraPosition}/>
 
     <directionalLight intensity={ 0.6 } position={1, 5, 6}  />
     
