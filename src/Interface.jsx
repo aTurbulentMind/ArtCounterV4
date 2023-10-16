@@ -1,12 +1,21 @@
-import React, { useRef, useState } from 'react'
+import React from 'react';
+import { useCamera } from './stores/CameraContext';
 
-export default function Interface({ setCameraPosition }) {
+// Define a functional component called Interface
+export default function Interface() {
+  // Use the custom hook to access the `setCameraPosition` function from the camera context
+  const { setCameraPosition } = useCamera();
 
+  // Define a function called `handleButtonClick` that takes a `newPosition` as a parameter
   const handleButtonClick = (newPosition) => {
-   const  setCameraPosition = (newPosition);
-    console.log(setCameraPosition, 'at menu click');
+    // Call the `setCameraPosition` function with the `newPosition` as an argument
+    setCameraPosition(newPosition);
+    
+    // Log a message to the console indicating that a new camera position has been set
+    console.log('New camera position set:', newPosition, 'at menu click');
   };
 
+  // Return the JSX representing the user interface
   return (
     <div className="interface">
       {/* Menu */}
@@ -14,13 +23,15 @@ export default function Interface({ setCameraPosition }) {
         <div className="raw">
           <div
             className="button"
-            onClick={(newPosition) => handleButtonClick({ x: 10, y: 10, z: 0 })}
+            // Attach a click event listener to the button and call `handleButtonClick` with a specific `newPosition`
+            onClick={() => handleButtonClick({ x: 10, y: 10, z: 0 })}
           >
             Artistic Artisan Design & More
           </div>
-                    <div
+          <div
             className="button"
-            onClick={(newPosition) => handleButtonClick({ x: 20, y: 4, z: 20 })}
+            // Attach a click event listener to the button and call `handleButtonClick` with a different `newPosition`
+            onClick={() => handleButtonClick({ x: 4, y: 20, z: 0 })}
           >
             Kitchen One
           </div>
