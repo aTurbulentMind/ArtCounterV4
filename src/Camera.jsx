@@ -1,27 +1,45 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { PerspectiveCamera } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
-
-// Import the custom hook to access camera context
 import { useCamera } from './stores/CameraContext';
 
-// Define a functional component called CameraBoi
+import LookAtPoint from './LookAtPoint';
+
 export default function CameraBoi() {
-  // Create a ref to hold the camera object
-  const cameraRef = useRef();
+  const { cameraPosition, currentTarget } = useCamera(); // Get camera position and current target from context
+  const cameraRef = useRef(); // Create a reference for the camera
+  const sphereRef = useRef(); // Create a reference for the red sphere
 
-  // Use the custom hook to access the camera position from the context
-  const { cameraPosition } = useCamera();
+    // Define an array of target points, each with x, y, and z coordinates
+  const targetPoints = [
+    { x: 0, y: -2, z: -20 },   
+    { x: 10, y: 7, z: 30 },   
+    { x: -10, y: 7, z: 27 },   
+    { x: 15, y: 5, z: -27.5 },
+    { x: 15, y: 8, z: -2 },
+    { x: -15, y: 5, z: -33 },
+    { x: -14, y: 5, z: -1 },
+  ];
 
-  // Use the useFrame function to execute code on every frame render
+    // Get the current target based on the index
+  let target = targetPoints[currentTarget];
+
+   // Use the `useEffect` hook to make the camera look at the current target when `currentTarget` changes
+      useEffect(() => {
+      cameraRef.current.lookAt(target.x, target.y, target.z); // Make the camera look at the target
+          console.log('Camera is looking at:', target); // Log the target that the camera is looking at
+  }, [currentTarget]);
+
+  // Use the `useFrame` hook to update the camera's position based on `cameraPosition`
   useFrame(() => {
-    // Check if the cameraRef is defined
     if (cameraRef.current) {
-      // Set the camera's position using the values from cameraPosition
       cameraRef.current.position.set(cameraPosition.x, cameraPosition.y, cameraPosition.z);
-    }
-  });
+    }});
 
-  // Provide the cameraRef to the PerspectiveCamera component using the "ref" attribute.
-  return <PerspectiveCamera ref={cameraRef} />;
+  return (
+    <>  
+    <LookAtPoint  target={target}  />
+    <PerspectiveCamera makeDefault ref={cameraRef} />
+    </>
+  );
 }

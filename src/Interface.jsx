@@ -1,41 +1,84 @@
 import React from 'react';
 import { useCamera } from './stores/CameraContext';
 
-// Define a functional component called Interface
 export default function Interface() {
-  // Use the custom hook to access the `setCameraPosition` function from the camera context
-  const { setCameraPosition } = useCamera();
+  // Access camera-related functions and data using the useCamera hook
+  const { setCameraPosition, setCurrentTarget } = useCamera();
 
-  // Define a function called `handleButtonClick` that takes a `newPosition` as a parameter
-  const handleButtonClick = (newPosition) => {
-    // Call the `setCameraPosition` function with the `newPosition` as an argument
+  // Function to handle button clicks, updating camera position and target
+  const handleButtonClick = (newPosition, targetIndex) => {
+    // Set the camera's position to the new location
     setCameraPosition(newPosition);
-    
-    // Log a message to the console indicating that a new camera position has been set
-    console.log('New camera position set:', newPosition, 'at menu click');
-  };
+    // Set the current target for the camera
+    setCurrentTarget(targetIndex);
+  }
 
-  // Return the JSX representing the user interface
   return (
     <div className="interface">
       {/* Menu */}
       <div className="Menu">
-        <div className="raw">
+
+        <div className="room">
+          <div className="button">Artistic Artisan Design & More</div>
+        </div>
+
+        <div className="room">
+          {/* Button to switch to "Services" target */}
           <div
-            className="button"
-            // Attach a click event listener to the button and call `handleButtonClick` with a specific `newPosition`
-            onClick={() => handleButtonClick({ x: 10, y: 10, z: 0 })}
-          >
-            Artistic Artisan Design & More
+            className="button click"
+            onClick={() => {
+              handleButtonClick({ x: 0, y: 8, z: 20 }, 1);
+            }}>
+            Services
           </div>
+          {/* Button to switch to "About" target */}
           <div
-            className="button"
-            // Attach a click event listener to the button and call `handleButtonClick` with a different `newPosition`
-            onClick={() => handleButtonClick({ x: 4, y: 20, z: 0 })}
-          >
-            Kitchen One
+            className="button click"
+            onClick={() => {
+              handleButtonClick({ x: 0, y: 8, z: 20 }, 2);
+            }}>
+            About
           </div>
         </div>
+
+        <div className="room">
+          {/* Button to switch to "Kitchen One" target */}
+          <div
+            className="button click"
+            onClick={() => {
+              handleButtonClick({ x: 0, y: 8, z: -25 }, 3);
+            }}>
+            Kitchen One
+          </div>
+          {/* Button to switch to "Kitchen Two" target */}
+          <div
+            className="button click"
+            onClick={() => {
+              handleButtonClick({ x: -2, y: 8, z: 0 }, 4);
+            }}>
+            Kitchen Two
+          </div>
+        </div>
+
+        <div className="room">
+          {/* Button to switch to "Bathroom" target */}
+          <div
+            className="button click"
+            onClick={() => {
+              handleButtonClick({ x: 3, y: 8, z: -25 }, 5);
+            }}>
+            Bathroom
+          </div>
+          {/* Button to switch to "Water Features" target */}
+          <div
+            className="button click"
+            onClick={() => {
+              handleButtonClick({ x: 7, y: 10, z: 0 }, 6);
+            }}>
+            Water Features
+          </div>
+        </div>
+
       </div>
     </div>
   );
