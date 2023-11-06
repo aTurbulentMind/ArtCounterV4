@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from 'react';
+import React, { useMemo, createContext, useState, useContext } from 'react';
 
 // Create a context for managing camera-related state
 const CameraContext = createContext();
@@ -9,8 +9,15 @@ export function CameraProvider({ children }) {
   const [cameraPosition, setCameraPosition] = useState({ x: 0, y: 8, z: 20 });
   const [currentTarget, setCurrentTarget] = useState(0);
 
+    // Function to reset the camera state to its initial values
+const resetCamera = () => {
+  setCameraPosition(prevPosition => ({ x: 0, y: 8, z: 20 }));
+  setCurrentTarget(prevTarget => 0);
+};
+
   // Define a context value containing the state variables and their corresponding setter functions
   const contextValue = {
+    resetCamera, // Function to reset the camera state
     cameraPosition, // Current camera position
     setCameraPosition, // Function to update camera position
     currentTarget, // Current target index

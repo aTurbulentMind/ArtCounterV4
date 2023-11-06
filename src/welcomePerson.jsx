@@ -1,4 +1,4 @@
-import { Environment, useTexture,  useGLTF, OrbitControls } from '@react-three/drei'
+import { useTexture,  useGLTF } from '@react-three/drei'
 
 export default function WelcomePerson()
 {
@@ -6,9 +6,8 @@ export default function WelcomePerson()
     
     const bakedTexture = useTexture('./model/baked-welcome.jpg')
     bakedTexture.flipY = false
-
+    
     return <  >
-
         <mesh 
         geometry={ nodes.WelcPerson.geometry } 
         position={ [ 16, 4, 34 ] }
@@ -16,6 +15,6 @@ export default function WelcomePerson()
         >
         <meshBasicMaterial 
             map={ bakedTexture } />
-         </mesh>
+        </mesh>
     </>
 }

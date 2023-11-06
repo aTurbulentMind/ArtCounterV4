@@ -1,4 +1,4 @@
-import { Environment, useTexture,  useGLTF} from '@react-three/drei'
+import { useTexture,  useGLTF} from '@react-three/drei'
 
 export default function Featz()
 {
@@ -16,7 +16,7 @@ export default function Featz()
         >
         <meshBasicMaterial 
             map={ bakedTexture } />
-         </mesh>
+        </mesh>
 
     </>
 }

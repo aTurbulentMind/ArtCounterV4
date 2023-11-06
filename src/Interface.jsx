@@ -3,15 +3,19 @@ import { useCamera } from './stores/CameraContext';
 
 export default function Interface() {
   // Access camera-related functions and data using the useCamera hook
-  const { setCameraPosition, setCurrentTarget } = useCamera();
+  const { resetCamera, setCameraPosition, setCurrentTarget,  } = useCamera();
 
   // Function to handle button clicks, updating camera position and target
   const handleButtonClick = (newPosition, targetIndex) => {
-    // Set the camera's position to the new location
-    setCameraPosition(newPosition);
-    // Set the current target for the camera
-    setCurrentTarget(targetIndex);
-  }
+    // Reset the camera before setting a new target and position
+    resetCamera();
+
+  // Set the camera's position to the new location
+  setCameraPosition(prevPosition => ({...prevPosition, ...newPosition}));
+
+  // Set the current target for the camera
+  setCurrentTarget(prevTarget => targetIndex);
+}
 
   return (
     <div className="interface">
@@ -31,6 +35,7 @@ export default function Interface() {
             }}>
             Services
           </div>
+          
           {/* Button to switch to "About" target */}
           <div
             className="button click"
@@ -50,6 +55,7 @@ export default function Interface() {
             }}>
             Kitchen One
           </div>
+
           {/* Button to switch to "Kitchen Two" target */}
           <div
             className="button click"

@@ -3,7 +3,6 @@ import { useFrame } from '@react-three/fiber';
 import { Sphere } from '@react-three/drei';
 import { useCamera } from './stores/CameraContext';
 
-
 export default function LookAtPoint({ target }) {
   const sphereRef = useRef(); // Create a reference for the red sphere
   const cameraRef = useRef(); // Create a reference for the camera
@@ -37,8 +36,5 @@ export default function LookAtPoint({ target }) {
     </Sphere>
   );
 }
-
-
-
 {/*
 */}
