@@ -10,6 +10,9 @@ import { CameraProvider } from './stores/CameraContext';
 // Import your components
 import Experience from './Experience.jsx';
 import Interface from './Interface.jsx';
+import ServMenu from './Serv-Menu'
+import RevMenu from './Reviews'
+import Calen from './Calendar'
 
 // Create a root element for rendering
 const root = ReactDOM.createRoot(document.querySelector('#root'));
@@ -23,6 +26,9 @@ root.render(
           <Experience />
       </Canvas>
       <Interface />
+      <ServMenu />
+      <RevMenu />
+      <Calen />
     </CameraProvider>
   </StrictMode>
 );

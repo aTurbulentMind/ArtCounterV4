@@ -21,7 +21,6 @@ body,
     left: 0;
     width: 100%;
     height: 100%;
-    
     pointer-events: none;
 }
 
@@ -51,4 +50,109 @@ body,
 .click {
     pointer-events: auto;
     cursor: pointer;
+}
+
+
+.servMenu
+{
+    position: fixed;
+    bottom: 50px;
+    left: 15%;
+    right: 15%;
+}
+
+.Window {
+    color: hwb(0 1% 99%);
+    background: rgba(231, 252, 227, 0.938);
+    border-radius: 12px;
+}
+
+.servText {
+    padding: 1%;
+    font-size: 1.75vw;
+}
+
+.RevMenu
+{
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    bottom: 50px;
+    left: 15%;
+    right: 15%;
+}
+
+.RevWindow {
+    color: hwb(0 1% 99%);
+    background: rgba(231, 252, 227, 0.938);
+    border-radius: 12px;
+    width: 25vw;
+    margin: 1vw;
+}
+
+.revBody {
+    padding: 1%;
+    font-size: 1.75vw;
+}
+
+.revText {
+    padding: 1%;
+    font-size: 1.5vw;
+}
+
+
+
+.Scheduler {
+    background: rgba(231, 252, 227, 0.938);
+    position: fixed;
+    width: fit-content;
+    bottom: 20px;
+    left: 15%;
+    right: 15%;
+    padding: 1%;
+    border-radius: 12px;
+}
+
+.CurrentDate {
+    color: hwb(0 1% 99%);
+    font-size: 1.75vw;
+}
+
+.dropzone {
+    margin: 1% 5%;
+    font-size: 1.25vw;
+}
+
+box{
+    margin: 5% 1%;
+    padding: 1%;
+}
+
+input {
+    margin:2%;
+}
+
+textarea {
+    margin-bottom: -2%;
+}
+
+button {
+    width: fit-content;
+    background: rgba(15, 17, 15, 0.616);
+    margin: 0% 40%;
+    color: #ffffff;
+    transition: all 0.2 ease-in-out;
+    font-size: 1.25vw;
+    font-weight: 100;
+    border-radius: 3px;
+    text-transform: uppercase;
+
+    &:hover {
+        transition: all 0.2 ease-in-out;
+        background: rgba(15, 17, 15, 0.616);
+        color:#ffffff;
+        box-shadow:rgba(15, 17, 15, 0.616);
+        transform: scale(1.125);
+        cursor: pointer;
+    }
 }

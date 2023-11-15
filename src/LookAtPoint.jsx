@@ -31,8 +31,8 @@ export default function LookAtPoint({ target }) {
   });
 
   return (
-    <Sphere args={[1, 32, 32]} scale={[3, 3, 3]} ref={sphereRef}>
-      <meshBasicMaterial color="red" />
+    <Sphere args={[1, 32, 32]} scale={[.01, .01, .01]} ref={sphereRef}>
+      <meshBasicMaterial color="purple" />
     </Sphere>
   );
 }
